@@ -4,7 +4,7 @@ const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.jsx',
+  entry: './src/index.tsx',
   output: {
     filename: 'bundle.js',
   },
@@ -32,20 +32,19 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|gif|png|svg)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-          }
-        ]
+        use: {
+          loader: 'file-loader',
+        }
       }
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
+      favicon: "./public/favicon.ico"
     }),
     new Dotenv()
   ],
@@ -53,6 +52,7 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'dist'),
     },
+    historyApiFallback: true,
     hot: true,
     open: true,
   },
