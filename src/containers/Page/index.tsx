@@ -1,7 +1,6 @@
 import { GridSize, Paper } from '@mui/material';
 import React from 'react';
 import { MediaCard, MediaCardProps } from '../../components/MediaCard';
-import { writingData } from '../../data/writingData';
 
 type PageProps = {
   data: Omit<MediaCardProps, 'infoSize' | 'imageSize'>[]
@@ -9,23 +8,28 @@ type PageProps = {
   mediaCardSizes?: {
     infoSize?: GridSize,
     imageSize?: GridSize,
-  }
+  },
+  children?: React.ReactNode,
 }
 
 export function Page({
   data,
   type,
   mediaCardSizes,
+  children,
+  ...rest
 }: PageProps) {
   return (
-    <Paper elevation={3}>
+    <Paper elevation={3} {...rest}>
       {data.map((item, index) => (
         <MediaCard
           key={`${index}-${type}`}
           listIndex={index}
           {...mediaCardSizes}
           {...item}
-        />
+        >
+          {children}
+        </MediaCard>
       ))}
     </Paper>
   )

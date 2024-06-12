@@ -7,7 +7,7 @@ const App = () => {
   return (
     <>
       <NavBar />
-      <Container maxWidth='lg' disableGutters sx={{ mt: 4 }}>
+      <Container maxWidth='lg' sx={{ mt: 4 }}>
         <Outlet />
       </Container>
       <ScrollRestoration />

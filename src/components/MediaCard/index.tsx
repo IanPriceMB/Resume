@@ -1,4 +1,8 @@
 import { Box, Grid, GridSize, List, ListItem, Typography } from '@mui/material';
+import Link from '@mui/material/Link';
+import {
+  Link as RouterLink,
+} from 'react-router-dom';
 import React, { useMemo } from 'react';
 
 
@@ -11,6 +15,8 @@ export type MediaCardProps = {
   subtitle?: string,
   imageSize?: GridSize,
   infoSize?: GridSize,
+  to?: string,
+  children?: React.ReactNode
 }
 
 export function MediaCard({
@@ -22,6 +28,8 @@ export function MediaCard({
   subtitle,
   imageSize = 4,
   infoSize = 8,
+  to,
+  children,
 }: MediaCardProps) {
   const isEven = useMemo(() => !(listIndex % 2) || listIndex === 0, []);
   const direction = useMemo(() => isEven ? 'row' : 'row-reverse', [isEven]);
@@ -58,10 +66,16 @@ export function MediaCard({
               ))}
             </List>
           ) : (
-            <Typography variant="body1" component="p">{info}</Typography>
+            <Typography variant="body1" component="p" sx={{ whiteSpace: 'pre-wrap' }}>{info}</Typography>
           )}
         </Grid>
       </Grid>
+      {to && <Box component='footer' display='flex' flexDirection={direction} justifyContent='flex-end'>
+        <Link component={RouterLink} to={to} target='_blank'>
+          {to}
+        </Link>
+      </Box>}
+      {children}
     </Box >
   )
 }
