@@ -1,11 +1,11 @@
-import Manannan from '../../assets/Manannan.png';
-import Drizella from '../../assets/Drizella.png';
-import Grania from '../../assets/Grania.gif';
-import Miriam from '../../assets/Miriam.png';
-import Saoirse from '../../assets/Saoirse.png';
-import Fang from '../../assets/Fang.png';
-import boxKun from '../../assets/box-kun.png';
-import heronCrane from '../../assets/HeronCranePublishing.png';
+import Manannan from '../assets/Manannan.png';
+import Drizella from '../assets/Drizella.png';
+import Grania from '../assets/Grania.gif';
+import Miriam from '../assets/Miriam.png';
+import Saoirse from '../assets/Saoirse.png';
+import Fang from '../assets/Fang.png';
+import boxKun from '../assets/box-kun.png';
+import heronCrane from '../assets/HeronCranePublishing.png';
 
 export const promptData = [
   {

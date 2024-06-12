@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Container } from '@mui/material';
 import { Outlet, ScrollRestoration } from 'react-router-dom';
 import { NavBar } from './components/NavBar';
@@ -8,7 +8,9 @@ const App = () => {
     <>
       <NavBar />
       <Container maxWidth='lg' sx={{ mt: 4 }}>
-        <Outlet />
+        <Suspense fallback={<h1>Loading...</h1>}>
+          <Outlet />
+        </Suspense>
       </Container>
       <ScrollRestoration />
     </>

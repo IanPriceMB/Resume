@@ -1,20 +1,15 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import {
   createBrowserRouter,
 } from "react-router-dom";
 import App from '../App';
-import { ErrorPage } from '../containers/ErrorPage';
 import { PromptEngineering } from '../containers/PromptEngineering';
-import { Page } from '../containers/Page';
-import { writingData } from '../data/writingData';
-import { videoGamesData } from '../data/videoGamesData';
-import { softwareData } from '../data/softwareData';
-import { contentData } from '../data/contentData';
-import { projectManagementData } from '../data/projectManagementData';
-import { homeData } from '../data/homeData';
-import { esportsData } from '../data/esportsData';
-import { Box, ButtonGroup } from '@mui/material';
+import Box from '@mui/material/Box';
 import { GithubIconLink, LinkedInIconLink, XIconLink } from '../components/IconLink';
+import { lazyImport } from '../utils/lazyImport';
+
+const Page = lazy(() => import('../containers/Page'))
+const ErrorPage = lazyImport('../containers/ErrorPage', 'ErrorPage')
 
 export const router = createBrowserRouter([
   {
@@ -23,48 +18,58 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "esports",
-        element: <Page data={esportsData} type='esports' />,
+        element: <Page type='esports' />,
+        loader: function loader() { return import('../data/esportsData').then(module => module.esportsData) },
         errorElement: <ErrorPage />,
       },
       {
         path: "project-management",
-        element: <Page data={projectManagementData} type='project-management' />,
+        element: <Page type='project-management' />,
+        loader: function loader() { return import('../data/projectManagementData').then(module => module.projectManagementData) },
         errorElement: <ErrorPage />,
       },
       {
         path: "content-creation",
-        element: <Page data={contentData} type='content-creation' mediaCardSizes={{ infoSize: 10, imageSize: 2 }} />,
+        element: <Page type='content-creation' mediaCardSizes={{ infoSize: 10, imageSize: 2 }} />,
+        loader: function loader() { return import('../data/contentData').then(module => module.contentData) },
         errorElement: <ErrorPage />,
       },
       {
         path: "propmpt-engineering",
         element: <PromptEngineering />,
+        loader: function loader() { return import('../data/promptData').then(module => module.promptData) },
         errorElement: <ErrorPage />,
       },
       {
         path: "software-engineering",
-        element: <Page data={softwareData} type='software-engineering' />,
+        element: <Page type='software-engineering' />,
+        loader: function loader() { return import('../data/softwareData').then(module => module.softwareData) },
         errorElement: <ErrorPage />,
       },
       {
         path: "video-games",
-        element: <Page data={videoGamesData} type='video-games' />,
+        element: <Page type='video-games' />,
+        loader: function loader() { return import('../data/videoGamesData').then(module => module.videoGamesData) },
         errorElement: <ErrorPage />,
       },
       {
         path: "writing",
-        element: <Page data={writingData} type='writing' />,
+        element: <Page type='writing' />,
+        loader: function loader() { return import('../data/writingData').then(module => module.writingData) },
         errorElement: <ErrorPage />,
       },
       {
         path: '/',
-        element: <Page data={homeData} type='home'>
-          <Box component='div' display='flex' justifyContent='flex-end'>
-            <LinkedInIconLink />
-            <GithubIconLink />
-            <XIconLink />
-          </Box>
-        </Page>,
+        element: (
+          <Page type='home'>
+            <Box component='div' display='flex' justifyContent='flex-end'>
+              <LinkedInIconLink />
+              <GithubIconLink />
+              <XIconLink />
+            </Box>
+          </Page>
+        ),
+        loader: function loader() { return import('../data/homeData').then(module => module.homeData) },
         errorElement: <ErrorPage />
       },
     ],

@@ -2,7 +2,17 @@
 import * as React from 'react';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
-import { promptData } from './proptData';
+import { useLoaderData } from 'react-router-dom';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
+type PromptDataType = {
+  img: any;
+  title: string;
+  rows: number;
+  cols: number;
+  author?: undefined;
+}
 
 function srcset(image: string, size: number, rows = 1, cols = 1) {
   return {
@@ -13,14 +23,22 @@ function srcset(image: string, size: number, rows = 1, cols = 1) {
 }
 
 export function PromptEngineering() {
+  const data = useLoaderData() as PromptDataType[];
+  const theme = useTheme();
+  const greaterThanMid = useMediaQuery(theme.breakpoints.up("md"));
+
   return (
     <ImageList
       variant="quilted"
-      cols={4}
+      cols={greaterThanMid ? 4 : 2}
       rowHeight={300}
     >
-      {promptData.map((item) => (
-        <ImageListItem key={item.img} cols={item.cols || 1} rows={item.rows || 1}>
+      {data.map((item) => (
+        <ImageListItem
+          key={item.img}
+          cols={item.cols || 1}
+          rows={item.rows || 1}
+        >
           <img
             {...srcset(item.img, 121, item.rows, item.cols)}
             alt={item.title}

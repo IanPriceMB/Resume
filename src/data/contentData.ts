@@ -11,7 +11,7 @@ export const contentData = [
       `• Tasked with content creation.`,
       `• My duties included, recording, editing, writing scripts, marketing, and selecting content.`
     ],
-    to: `https://www.youtube.com/@nihilismgaming4046`,
+    href: `https://www.youtube.com/@nihilismgaming4046`,
   },
   {
     title: 'Slash 2 Esports',
@@ -21,7 +21,7 @@ export const contentData = [
       `• Writing intern.`,
       `• Witing SEO optimized articles about gaming content.`
     ],
-    to: `https://www.youtube.com/@slash2726`,
+    href: `https://www.youtube.com/@slash2726`,
   },
   {
     title: 'White Boy Kpop',
@@ -34,6 +34,6 @@ export const contentData = [
       `• I spent time with Drama Fever creating kpop news videos.`,
       `• I was a panelist at KCON 2014 in LA.`,
     ],
-    to: `https://www.youtube.com/@WhiteBoyKpop`,
+    href: `https://www.youtube.com/@WhiteBoyKpop`,
   },
 ];
