@@ -5,7 +5,7 @@ import meprice from '../assets/meprice.jpg';
 import heronCrane from '../assets/HeronCranePublishing.png';
 import chc from '../assets/change_healthcare.png';
 
-export const softwareData = [
+const softwareData = [
   {
     title: 'Heron Crane Publishing',
     subtitle: 'Full-stack Software Engineer',
@@ -96,3 +96,5 @@ export const softwareData = [
     ]
   },
 ]
+
+export default softwareData;

@@ -6,8 +6,7 @@ import Saoirse from '../assets/Saoirse.png';
 import Fang from '../assets/Fang.png';
 import boxKun from '../assets/box-kun.png'
 
-
-export const writingData = [
+const writingData = [
   {
     title: `Manannan Mac Lir: Nemed's Betrayal`,
     src: Manannan,
@@ -63,3 +62,5 @@ In short, it's a perfect situation. \n
 But when the magic of the cradle proves too much for Fang to handle, will she be able to find the effort it takes to push for the finish before the evil Captian Ross beats her to the treasure and, by extension, a key to killing her people in Tir Na Nog? Or will she die in the attempt.`
   },
 ]
+
+export default writingData;

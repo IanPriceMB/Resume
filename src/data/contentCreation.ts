@@ -2,7 +2,7 @@ import nihilism from '../assets/nihilism.jpg';
 import slash2 from '../assets/slash 2.jpg';
 import wbk from '../assets/wbk.jpg';
 
-export const contentData = [
+const contentData = [
   {
     title: 'Nihilism Gaming',
     src: nihilism,
@@ -37,3 +37,5 @@ export const contentData = [
     href: `https://www.youtube.com/@WhiteBoyKpop`,
   },
 ];
+
+export default contentData;

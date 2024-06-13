@@ -7,7 +7,7 @@ import Fang from '../assets/Fang.png';
 import boxKun from '../assets/box-kun.png';
 import heronCrane from '../assets/HeronCranePublishing.png';
 
-export const promptData = [
+const promptData = [
   {
     img: Manannan,
     title: 'Manannan',
@@ -67,3 +67,5 @@ export const promptData = [
   //   cols: 2,
   // },
 ];
+
+export default promptData;

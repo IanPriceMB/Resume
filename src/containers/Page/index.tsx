@@ -1,10 +1,9 @@
 import React from 'react';
 import { GridSize, Paper } from '@mui/material';
 import { MediaCard, MediaCardProps } from '../../components/MediaCard';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useLocation } from 'react-router-dom';
 
-type PageProps = {
-  type: string,
+export type PageProps = {
   mediaCardSizes?: {
     infoSize?: GridSize,
     imageSize?: GridSize,
@@ -13,18 +12,19 @@ type PageProps = {
 }
 
 export default function Page({
-  type,
   mediaCardSizes,
   children,
   ...rest
 }: PageProps) {
+  let location = useLocation();
+
   const data = useLoaderData() as Omit<MediaCardProps, 'infoSize' | 'imageSize'>[];
 
   return (
     <Paper elevation={3} {...rest}>
       {data.map((item, index) => (
         <MediaCard
-          key={`${index}-${type}`}
+          key={`${index}-${location.pathname}`}
           listIndex={index}
           {...mediaCardSizes}
           {...item}

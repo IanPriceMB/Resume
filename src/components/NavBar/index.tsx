@@ -6,11 +6,11 @@ import {
 } from 'react-router-dom';
 import { AppBarHamburgerMenu } from '../AppBarHamburgerMenu';
 
-
 export function NavBar() {
   let location = useLocation();
 
-  const pages = ['Software Engineering', 'Writing', 'Propmpt Engineering', 'Content Creation', 'Project Management', 'Video Games', 'Esports'];
+  // 'Project Management', 
+  const pages = ['Software Engineering', 'Prompt Engineering', 'Writing', 'Content Creation', 'Video Games', 'Esports'];
 
   return (
     <AppBar position='sticky'>

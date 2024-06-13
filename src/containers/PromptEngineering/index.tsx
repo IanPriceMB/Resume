@@ -22,7 +22,7 @@ function srcset(image: string, size: number, rows = 1, cols = 1) {
   };
 }
 
-export function PromptEngineering() {
+export default function PromptEngineering() {
   const data = useLoaderData() as PromptDataType[];
   const theme = useTheme();
   const greaterThanMid = useMediaQuery(theme.breakpoints.up("md"));

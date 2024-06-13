@@ -7,7 +7,7 @@ import sinix from '../assets/sinix.jpg';
 import placeholder from '../assets/placeholder.png';
 import obc from '../assets/obc.jpg';
 
-export const esportsData = [
+const esportsData = [
   {
     title: 'University of Denver Esports Club',
     subtitle: 'Founder / President / Head Coach',
@@ -108,3 +108,5 @@ export const esportsData = [
     ],
   },
 ];
+
+export default esportsData;
